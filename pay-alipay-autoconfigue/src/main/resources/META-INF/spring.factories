@@ -1,3 +1,2 @@
 org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
-net.guerlab.pay.alipay.config.AlipayClientConfig,
-net.guerlab.pay.alipay.config.AlipayConfig
+net.guerlab.pay.alipay.config.ApilayAutoConfiguration

@@ -14,8 +14,10 @@ import org.springframework.stereotype.Component;
  */
 @Component
 @RefreshScope
-@ConfigurationProperties(prefix = "pay.alipay")
+@ConfigurationProperties(prefix = AlipayConfig.PAY_ALIPAY_PREFIX)
 public class AlipayConfig {
+
+    public static final String PAY_ALIPAY_PREFIX = "pay.alipay";
 
     private String serverUrl;
 
@@ -28,6 +30,8 @@ public class AlipayConfig {
     private String pulicKey;
 
     private String alipayPublicKey;
+
+    private String signType;
 
     public String getServerUrl() {
         return serverUrl;
@@ -86,5 +90,14 @@ public class AlipayConfig {
     public String getRetrunUrl(
             String type) {
         return retrunUrls == null ? null : retrunUrls.get(type);
+    }
+
+    public String getSignType() {
+        return signType;
+    }
+
+    public void setSignType(
+            String signType) {
+        this.signType = signType;
     }
 }
