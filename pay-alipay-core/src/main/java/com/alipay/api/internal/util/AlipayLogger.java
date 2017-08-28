@@ -55,9 +55,6 @@ public class AlipayLogger {
         AlipayLogger.ip = ip;
     }
 
-    /**
-     * 通讯错误日志
-     */
     public static void logCommError(
             Exception e,
             HttpURLConnection conn,
@@ -76,9 +73,6 @@ public class AlipayLogger {
         }
     }
 
-    /**
-     * 通讯错误日志
-     */
     public static void logCommError(
             Exception e,
             String url,
@@ -97,9 +91,6 @@ public class AlipayLogger {
         }
     }
 
-    /**
-     * 通讯错误日志
-     */
     public static void logCommError(
             Exception e,
             HttpURLConnection conn,
@@ -124,9 +115,6 @@ public class AlipayLogger {
         _logCommError(e, null, url, appKey, method, params);
     }
 
-    /**
-     * 通讯错误日志
-     */
     private static void logCommError(
             Exception e,
             HttpURLConnection conn,
@@ -137,9 +125,6 @@ public class AlipayLogger {
         _logCommError(e, conn, null, appKey, method, params);
     }
 
-    /**
-     * 通讯错误日志
-     */
     private static void logCommError(
             Exception e,
             String url,
@@ -150,9 +135,6 @@ public class AlipayLogger {
         _logCommError(e, null, url, appKey, method, params);
     }
 
-    /**
-     * 通讯错误日志
-     */
     private static void _logCommError(
             Exception e,
             HttpURLConnection conn,
@@ -214,9 +196,6 @@ public class AlipayLogger {
         return params;
     }
 
-    /**
-     * 业务/系统错误日志
-     */
     public static void logBizDebug(
             String rsp) {
         if (!needEnableLogger) {
@@ -234,9 +213,6 @@ public class AlipayLogger {
         }
     }
 
-    /**
-     * 业务/系统错误日志
-     */
     public static void logBizError(
             String rsp) {
         if (!needEnableLogger) {
@@ -251,9 +227,6 @@ public class AlipayLogger {
         blog.error(sb.toString());
     }
 
-    /**
-     * 业务/系统错误日志
-     */
     public static void logBizError(
             Throwable t) {
         if (!needEnableLogger) {
@@ -262,9 +235,6 @@ public class AlipayLogger {
         blog.error(t.getMessage(), t);
     }
 
-    /**
-     * 发生特别错误时记录完整错误现场
-     */
     @SuppressWarnings("deprecation")
     public static void logErrorScene(
             Map<String, Object> rt,
@@ -321,11 +291,6 @@ public class AlipayLogger {
         return blog.isDebugEnabled();
     }
 
-    /**
-     * 开启DEBUG级别日志（仅针对JDK14LOGGER，LOG4J请自行修改配置文件）
-     *
-     * @param isEnabled
-     */
     public static void setJDKDebugEnabled(
             Boolean isEnabled) {
     }

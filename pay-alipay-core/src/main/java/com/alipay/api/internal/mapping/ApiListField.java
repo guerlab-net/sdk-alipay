@@ -12,10 +12,11 @@ import java.lang.annotation.Target;
  * @since 1.0, Apr 11, 2010
  */
 @Retention(RetentionPolicy.RUNTIME)
-@Target(value = { ElementType.FIELD })
+@Target(value = {
+        ElementType.FIELD
+})
 public @interface ApiListField {
 
-    /** JSON列表属性映射名称 **/
-	public String value() default "";
+    public String value() default "";
 
 }

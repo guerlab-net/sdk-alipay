@@ -28,16 +28,17 @@ import com.alipay.api.internal.util.StringUtils;
  * @since 1.0, Apr 11, 2010
  */
 public class Converters {
+
     // 是否对JSON返回的数据类型进行校验，默认不校验。给内部测试JSON返回时用的开关。
-    //规则：返回的"基本"类型只有String,Long,Boolean,Date,采取严格校验方式，如果类型不匹配，报错
-    public static boolean            isCheckJsonType = false;
+    // 规则：返回的"基本"类型只有String,Long,Boolean,Date,采取严格校验方式，如果类型不匹配，报错
+    public static boolean isCheckJsonType = false;
 
-    private static final Set<String> baseFields      = new HashSet<String>();
+    private static final Set<String> baseFields = new HashSet<String>();
 
-    private static final Set<String> excludeFields   = new HashSet<String>();
+    private static final Set<String> excludeFields = new HashSet<String>();
 
     /** 被子类覆盖的属性 */
-    private static final Set<String> overideFields   = new HashSet<String>();
+    private static final Set<String> overideFields = new HashSet<String>();
 
     static {
         baseFields.add("code");
@@ -63,16 +64,9 @@ public class Converters {
     private Converters() {
     }
 
-    /**
-     * 使用指定 的读取器去转换字符串为对象。
-     * 
-     * @param <T> 领域泛型
-     * @param clazz 领域类型
-     * @param reader 读取器
-     * @return 领域对象
-     * @throws ApiException
-     */
-    public static <T> T convert(Class<T> clazz, Reader reader) throws AlipayApiException {
+    public static <T> T convert(
+            Class<T> clazz,
+            Reader reader) throws AlipayApiException {
         T rsp = null;
 
         try {
@@ -112,8 +106,7 @@ public class Converters {
                         alipayFieldMethod.setMethod(writeMethod);
                     } else {
                         // 否则从父类再取一次
-                        writeMethod = tryGetSetMethod(AlipayResponse.class, field,
-                            writeMethod.getName());
+                        writeMethod = tryGetSetMethod(AlipayResponse.class, field, writeMethod.getName());
                         if (writeMethod == null) {
                             continue;
                         }
@@ -256,8 +249,7 @@ public class Converters {
                             if (genericTypes != null && genericTypes.length > 0) {
                                 if (genericTypes[0] instanceof Class<?>) {
                                     Class<?> subType = (Class<?>) genericTypes[0];
-                                    List<?> listObjs = reader.getListObjects(listName, itemName,
-                                        subType);
+                                    List<?> listObjs = reader.getListObjects(listName, itemName, subType);
                                     if (listObjs != null) {
                                         method.invoke(rsp, listObjs);
                                     }
@@ -280,16 +272,9 @@ public class Converters {
         return rsp;
     }
 
-    /**
-     *  尝试获取属性
-     *  
-     *  不会抛出异常，不存在则返回null
-     * 
-     * @param clazz
-     * @param itemName
-     * @return
-     */
-    private static Field tryGetFieldWithoutExp(Class<?> clazz, String itemName) {
+    private static Field tryGetFieldWithoutExp(
+            Class<?> clazz,
+            String itemName) {
 
         try {
 
@@ -300,14 +285,10 @@ public class Converters {
         }
     }
 
-    /**
-     *   获取属性设置属性
-     * 
-     * @param clazz
-     * @param field
-     * @return
-     */
-    private static <T> Method tryGetSetMethod(Class<T> clazz, Field field, String methodName) {
+    private static <T> Method tryGetSetMethod(
+            Class<T> clazz,
+            Field field,
+            String methodName) {
 
         try {
             return clazz.getDeclaredMethod(methodName, field.getType());

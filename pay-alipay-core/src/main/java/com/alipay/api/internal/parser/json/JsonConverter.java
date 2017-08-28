@@ -32,8 +32,9 @@ import com.alipay.api.internal.util.json.JSONValidatingReader;
  */
 public class JsonConverter implements Converter {
 
-    public <T extends AlipayResponse> T toResponse(String rsp, Class<T> clazz)
-                                                                              throws AlipayApiException {
+    public <T extends AlipayResponse> T toResponse(
+            String rsp,
+            Class<T> clazz) throws AlipayApiException {
         JSONReader reader = new JSONValidatingReader(new ExceptionErrorListener());
         Object rootObj = reader.read(rsp);
         if (rootObj instanceof Map<?, ?>) {
@@ -49,26 +50,24 @@ public class JsonConverter implements Converter {
         return null;
     }
 
-    /**
-     * 把JSON格式的数据转换为对象。
-     * 
-     * @param <T> 泛型领域对象
-     * @param json JSON格式的数据
-     * @param clazz 泛型领域类型
-     * @return 领域对象
-     * @throws TopException
-     */
-    public <T> T fromJson(final Map<?, ?> json, Class<T> clazz) throws AlipayApiException {
+    public <T> T fromJson(
+            final Map<?, ?> json,
+            Class<T> clazz) throws AlipayApiException {
         return Converters.convert(clazz, new Reader() {
-            public boolean hasReturnField(Object name) {
+
+            public boolean hasReturnField(
+                    Object name) {
                 return json.containsKey(name);
             }
 
-            public Object getPrimitiveObject(Object name) {
+            public Object getPrimitiveObject(
+                    Object name) {
                 return json.get(name);
             }
 
-            public Object getObject(Object name, Class<?> type) throws AlipayApiException {
+            public Object getObject(
+                    Object name,
+                    Class<?> type) throws AlipayApiException {
                 Object tmp = json.get(name);
                 if (tmp instanceof Map<?, ?>) {
                     Map<?, ?> map = (Map<?, ?>) tmp;
@@ -78,8 +77,10 @@ public class JsonConverter implements Converter {
                 }
             }
 
-            public List<?> getListObjects(Object listName, Object itemName, Class<?> subType)
-                                                                                             throws AlipayApiException {
+            public List<?> getListObjects(
+                    Object listName,
+                    Object itemName,
+                    Class<?> subType) throws AlipayApiException {
                 List<Object> listObjs = null;
 
                 Object listTmp = json.get(listName);
@@ -100,8 +101,9 @@ public class JsonConverter implements Converter {
                 return listObjs;
             }
 
-            private List<Object> getListObjectsInner(Class<?> subType, Object itemTmp)
-                                                                                      throws AlipayApiException {
+            private List<Object> getListObjectsInner(
+                    Class<?> subType,
+                    Object itemTmp) throws AlipayApiException {
                 List<Object> listObjs;
                 listObjs = new ArrayList<Object>();
                 List<?> tmpList = (List<?>) itemTmp;
@@ -137,11 +139,9 @@ public class JsonConverter implements Converter {
         });
     }
 
-    /** 
-     * @see com.alipay.api.internal.mapping.Converter#getSignItem(com.alipay.api.AlipayRequest, String)
-     */
-    public SignItem getSignItem(AlipayRequest<?> request, String responseBody)
-                                                                              throws AlipayApiException {
+    public SignItem getSignItem(
+            AlipayRequest<?> request,
+            String responseBody) throws AlipayApiException {
 
         // 响应为空则直接返回
         if (StringUtils.isEmpty(responseBody)) {
@@ -162,17 +162,12 @@ public class JsonConverter implements Converter {
         return signItem;
     }
 
-    /**
-     * 
-     * @param request
-     * @param body
-     * @return
-     */
-    private String getSignSourceData(AlipayRequest<?> request, String body) {
+    private String getSignSourceData(
+            AlipayRequest<?> request,
+            String body) {
 
         // 加签源串起点
-        String rootNode = request.getApiMethodName().replace('.', '_')
-                          + AlipayConstants.RESPONSE_SUFFIX;
+        String rootNode = request.getApiMethodName().replace('.', '_') + AlipayConstants.RESPONSE_SUFFIX;
         String errorRootNode = AlipayConstants.ERROR_RESPONSE;
 
         int indexOfRootNode = body.indexOf(rootNode);
@@ -192,18 +187,12 @@ public class JsonConverter implements Converter {
         }
     }
 
-    /**
-     *   获取签名源串内容
-     *    
-     * 
-     * @param body
-     * @param rootNode
-     * @param indexOfRootNode
-     * @return
-     */
-    private String parseSignSourceData(String body, String rootNode, int indexOfRootNode) {
+    private String parseSignSourceData(
+            String body,
+            String rootNode,
+            int indexOfRootNode) {
 
-        //  第一个字母+长度+引号和分号
+        // 第一个字母+长度+引号和分号
         int signDataStartIndex = indexOfRootNode + rootNode.length() + 2;
         int indexOfSign = body.indexOf("\"" + AlipayConstants.SIGN + "\"");
 
@@ -218,13 +207,8 @@ public class JsonConverter implements Converter {
         return body.substring(signDataStartIndex, signDataEndIndex);
     }
 
-    /**
-     * 获取签名
-     * 
-     * @param body
-     * @return
-     */
-    private String getSign(String body) {
+    private String getSign(
+            String body) {
 
         JSONReader reader = new JSONValidatingReader(new ExceptionErrorListener());
         Object rootObj = reader.read(body);
@@ -233,12 +217,13 @@ public class JsonConverter implements Converter {
         return (String) rootJson.get(AlipayConstants.SIGN);
     }
 
-    /** 
-     * @see com.alipay.api.internal.mapping.Converter#encryptSourceData(com.alipay.api.AlipayRequest, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String)
-     */
-    public String encryptSourceData(AlipayRequest<?> request, String body, String format,
-                                    String encryptType, String encryptKey, String charset)
-                                                                                          throws AlipayApiException {
+    public String encryptSourceData(
+            AlipayRequest<?> request,
+            String body,
+            String format,
+            String encryptType,
+            String encryptKey,
+            String charset) throws AlipayApiException {
 
         ResponseParseItem respSignSourceData = getJSONSignSourceData(request, body);
 
@@ -246,22 +231,16 @@ public class JsonConverter implements Converter {
         String bodyEndContent = body.substring(respSignSourceData.getEndIndex());
 
         return bodyIndexContent
-               + AlipayEncrypt.decryptContent(respSignSourceData.getEncryptContent(), encryptType,
-                   encryptKey, charset) + bodyEndContent;
+                + AlipayEncrypt.decryptContent(respSignSourceData.getEncryptContent(), encryptType, encryptKey, charset)
+                + bodyEndContent;
 
     }
 
-    /**
-     *  获取JSON响应加签内容串
-     * 
-     * @param request
-     * @param body
-     * @return
-     */
-    private ResponseParseItem getJSONSignSourceData(AlipayRequest<?> request, String body) {
+    private ResponseParseItem getJSONSignSourceData(
+            AlipayRequest<?> request,
+            String body) {
 
-        String rootNode = request.getApiMethodName().replace('.', '_')
-                          + AlipayConstants.RESPONSE_SUFFIX;
+        String rootNode = request.getApiMethodName().replace('.', '_') + AlipayConstants.RESPONSE_SUFFIX;
         String errorRootNode = AlipayConstants.ERROR_RESPONSE;
 
         int indexOfRootNode = body.indexOf(rootNode);
@@ -279,16 +258,10 @@ public class JsonConverter implements Converter {
         }
     }
 
-    /**
-     * 
-     * 
-     * @param body
-     * @param rootNode
-     * @param indexOfRootNode
-     * @return
-     */
-    private ResponseParseItem parseJSONSignSourceData(String body, String rootNode,
-                                                      int indexOfRootNode) {
+    private ResponseParseItem parseJSONSignSourceData(
+            String body,
+            String rootNode,
+            int indexOfRootNode) {
 
         int signDataStartIndex = indexOfRootNode + rootNode.length() + 2;
         int indexOfSign = body.indexOf("\"" + AlipayConstants.SIGN + "\"");

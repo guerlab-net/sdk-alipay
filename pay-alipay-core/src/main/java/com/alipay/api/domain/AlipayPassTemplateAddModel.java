@@ -11,32 +11,36 @@ import com.alipay.api.internal.mapping.ApiField;
  */
 public class AlipayPassTemplateAddModel extends AlipayObject {
 
-	private static final long serialVersionUID = 2789879141143959755L;
+    private static final long serialVersionUID = 2789879141143959755L;
 
-	/**
-	 * 模板内容信息，遵循JSON规范，详情参见tpl_content参数说明：https://doc.open.alipay.com/doc2/detail.htm?treeId=193&articleId=105249&docType=1#tpl_content
-	 */
-	@ApiField("tpl_content")
-	private String tplContent;
+    /**
+     * 模板内容信息，遵循JSON规范，详情参见tpl_content参数说明：https://doc.open.alipay.com/doc2/detail.htm?treeId=193&amp;articleId=105249&amp;docType=1#tpl_content
+     */
+    @ApiField("tpl_content")
+    private String tplContent;
 
-	/**
-	 * 商户用于控制模版的唯一性。（可以使用时间戳保证唯一性）
-	 */
-	@ApiField("unique_id")
-	private String uniqueId;
+    /**
+     * 商户用于控制模版的唯一性。（可以使用时间戳保证唯一性）
+     */
+    @ApiField("unique_id")
+    private String uniqueId;
 
-	public String getTplContent() {
-		return this.tplContent;
-	}
-	public void setTplContent(String tplContent) {
-		this.tplContent = tplContent;
-	}
+    public String getTplContent() {
+        return this.tplContent;
+    }
 
-	public String getUniqueId() {
-		return this.uniqueId;
-	}
-	public void setUniqueId(String uniqueId) {
-		this.uniqueId = uniqueId;
-	}
+    public void setTplContent(
+            String tplContent) {
+        this.tplContent = tplContent;
+    }
+
+    public String getUniqueId() {
+        return this.uniqueId;
+    }
+
+    public void setUniqueId(
+            String uniqueId) {
+        this.uniqueId = uniqueId;
+    }
 
 }

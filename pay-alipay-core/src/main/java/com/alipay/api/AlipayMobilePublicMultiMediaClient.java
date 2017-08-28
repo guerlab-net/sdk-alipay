@@ -121,19 +121,12 @@ public class AlipayMobilePublicMultiMediaClient implements AlipayClient {
         sign_type = signType;
     }
 
-    /**
-     * @see com.alipay.api.AlipayClient#execute(com.alipay.api.AlipayRequest)
-     */
     @Override
     public <T extends AlipayResponse> T execute(
             AlipayRequest<T> request) throws AlipayApiException {
         return execute(request, null);
     }
 
-    /**
-     * @see com.alipay.api.AlipayClient#execute(com.alipay.api.AlipayRequest,
-     *      java.lang.String)
-     */
     @Override
     public <T extends AlipayResponse> T execute(
             AlipayRequest<T> request,
@@ -142,10 +135,6 @@ public class AlipayMobilePublicMultiMediaClient implements AlipayClient {
         return execute(request, accessToken, null);
     }
 
-    /**
-     * @see com.alipay.api.AlipayClient#execute(com.alipay.api.AlipayRequest,
-     *      java.lang.String, java.lang.String, java.lang.String)
-     */
     @Override
     public <T extends AlipayResponse> T execute(
             AlipayRequest<T> request,
@@ -237,17 +226,6 @@ public class AlipayMobilePublicMultiMediaClient implements AlipayClient {
         return (T) rsp;
     }
 
-    /**
-     *
-     * @param url
-     * @param params
-     * @param charset
-     * @param connectTimeout
-     * @param readTimeout
-     * @return
-     * @throws IOException
-     * @throws AlipayApiException
-     */
     public static AlipayMobilePublicMultiMediaDownloadResponse doGet(
             String url,
             RequestParametersHolder requestHolder,
@@ -489,11 +467,6 @@ public class AlipayMobilePublicMultiMediaClient implements AlipayClient {
         return query.toString();
     }
 
-    /**
-     *
-     * @param query
-     * @return
-     */
     public static Map<String, String> splitUrlQuery(
             String query) {
         Map<String, String> result = new HashMap<>();

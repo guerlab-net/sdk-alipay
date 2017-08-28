@@ -240,15 +240,6 @@ public class DefaultAlipayClient implements AlipayClient {
         return tRsp;
     }
 
-    /**
-     * 组装接口参数，处理加密、签名逻辑
-     *
-     * @param request
-     * @param accessToken
-     * @param appAuthToken
-     * @return
-     * @throws AlipayApiException
-     */
     public <T extends AlipayResponse> RequestParametersHolder getRequestHolderWithSign(
             AlipayRequest<?> request,
             String accessToken,
@@ -340,13 +331,6 @@ public class DefaultAlipayClient implements AlipayClient {
         return requestHolder;
     }
 
-    /**
-     * 获取POST请求的base url
-     *
-     * @param requestHolder
-     * @return
-     * @throws AlipayApiException
-     */
     public String getRequestUrl(
             RequestParametersHolder requestHolder) throws AlipayApiException {
         StringBuffer urlSb = new StringBuffer(serverUrl);
@@ -367,13 +351,6 @@ public class DefaultAlipayClient implements AlipayClient {
         return urlSb.toString();
     }
 
-    /**
-     * GET模式下获取跳转链接
-     *
-     * @param requestHolder
-     * @return
-     * @throws AlipayApiException
-     */
     private String getRedirectUrl(
             RequestParametersHolder requestHolder) throws AlipayApiException {
         StringBuffer urlSb = new StringBuffer(serverUrl);
@@ -397,13 +374,6 @@ public class DefaultAlipayClient implements AlipayClient {
         return urlSb.toString();
     }
 
-    /**
-     * 拼装sdk调用时所传参数
-     *
-     * @param requestHolder
-     * @return
-     * @throws AlipayApiException
-     */
     private String getSdkParams(
             RequestParametersHolder requestHolder) throws AlipayApiException {
         StringBuffer urlSb = new StringBuffer();
@@ -460,15 +430,6 @@ public class DefaultAlipayClient implements AlipayClient {
         return tRsp;
     }
 
-    /**
-     *
-     *
-     * @param request
-     * @param accessToken
-     * @param signType
-     * @return
-     * @throws AlipayApiException
-     */
     private <T extends AlipayResponse> Map<String, Object> doPost(
             AlipayRequest<T> request,
             String accessToken,
@@ -504,15 +465,6 @@ public class DefaultAlipayClient implements AlipayClient {
         return result;
     }
 
-    /**
-     * 检查响应签名
-     *
-     * @param request
-     * @param parser
-     * @param responseBody
-     * @param responseIsSucess
-     * @throws AlipayApiException
-     */
     private <T extends AlipayResponse> void checkResponseSign(
             AlipayRequest<T> request,
             AlipayParser<T> parser,
@@ -557,15 +509,6 @@ public class DefaultAlipayClient implements AlipayClient {
         }
     }
 
-    /**
-     * 解密响应
-     *
-     * @param request
-     * @param rt
-     * @param parser
-     * @return
-     * @throws AlipayApiException
-     */
     private <T extends AlipayResponse> ResponseEncryptItem encryptResponse(
             AlipayRequest<T> request,
             Map<String, Object> rt,

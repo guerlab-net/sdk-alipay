@@ -44,7 +44,7 @@ value：tagCode对应选中的值，如：440100为城市地区代码，可支�
 11)达人偏好：pubsrv_preference操作符：(IN)	多值列，枚举值：travel=旅游;video=影视;game=游戏;music=音乐;photography=摄影;pet=宠物;sports=运动;digital=数码
 
 * 年龄区间标签枚举 枚举值: 1-11
-user_age <=17 then 1
+user_age &gt;=17 then 1
 [18,20] then 2
 [21,25] then 3
 [26,30] then 4
@@ -54,7 +54,7 @@ user_age <=17 then 1
 [46,50] then 8
 [51,55] then 9
 [56,60] then 10
-user_age >60 then 11
+user_age &lt;60 then 11
 	 */
 	@ApiField("scenetagjson")
 	private String scenetagjson;
