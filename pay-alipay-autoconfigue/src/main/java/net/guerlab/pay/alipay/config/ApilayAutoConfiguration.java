@@ -4,6 +4,7 @@ import org.springframework.boot.context.properties.EnableConfigurationProperties
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
+import com.alipay.api.AlipayClient;
 import com.alipay.api.AlipayConstants;
 import com.alipay.api.DefaultAlipayClient;
 
@@ -12,7 +13,7 @@ import com.alipay.api.DefaultAlipayClient;
 public class ApilayAutoConfiguration {
 
     @Bean
-    public DefaultAlipayClient client(
+    public AlipayClient client(
             AlipayConfig config) {
 
         String signType = AlipayConstants.SIGN_TYPE_RSA.equals(config.getSignType()) ? AlipayConstants.SIGN_TYPE_RSA
