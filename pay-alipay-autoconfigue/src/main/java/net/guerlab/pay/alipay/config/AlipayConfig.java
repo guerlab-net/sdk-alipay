@@ -19,7 +19,7 @@ public class AlipayConfig {
 
     public static final String PAY_ALIPAY_PREFIX = "pay.alipay";
 
-    private String serverUrl;
+    private boolean dev;
 
     private Map<String, String> retrunUrls;
 
@@ -33,13 +33,13 @@ public class AlipayConfig {
 
     private String signType;
 
-    public String getServerUrl() {
-        return serverUrl;
+    public boolean isDev() {
+        return dev;
     }
 
-    public void setServerUrl(
-            String serverUrl) {
-        this.serverUrl = serverUrl;
+    public void setDev(
+            boolean dev) {
+        this.dev = dev;
     }
 
     public String getAppId() {

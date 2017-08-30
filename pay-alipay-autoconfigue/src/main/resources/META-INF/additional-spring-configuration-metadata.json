@@ -9,11 +9,11 @@
 	],
 	"properties": [
 		{
-			"name": "pay.alipay.server-url",
-			"type": "java.lang.String",
+			"name": "pay.alipay.dev",
+			"type": "java.lang.boolean",
 			"sourceType": "net.guerlab.pay.alipay.config.AlipayConfig",
-			"description": "支付宝网关地址",
-			"defaultValue": "https://openapi.alipay.com/gateway.do"
+			"description": "开发模式",
+			"defaultValue": "false"
 		},
 		{
 			"name": "pay.alipay.retrun-urls",
