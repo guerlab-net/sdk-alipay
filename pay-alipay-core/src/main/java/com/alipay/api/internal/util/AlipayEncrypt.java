@@ -4,8 +4,6 @@
  */
 package com.alipay.api.internal.util;
 
-import java.security.GeneralSecurityException;
-
 import javax.crypto.Cipher;
 import javax.crypto.spec.IvParameterSpec;
 import javax.crypto.spec.SecretKeySpec;
