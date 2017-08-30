@@ -69,7 +69,7 @@
 					<artifactId>maven-deploy-plugin</artifactId>
 					<version>${plugin.deploy.version}</version>
 					<configuration>
-						<altSnapshotDeploymentRepository>guerlab::Maven2::http://maven.guerlab.net/repository/guerlab/</altSnapshotDeploymentRepository>
+						<altDeploymentRepository>guerlab::default::http://maven.guerlab.net/repository/guerlab/</altDeploymentRepository>
 					</configuration>
 				</plugin>
 			</plugins>
