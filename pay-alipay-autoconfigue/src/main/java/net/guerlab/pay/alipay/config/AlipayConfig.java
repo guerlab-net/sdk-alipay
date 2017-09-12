@@ -27,8 +27,6 @@ public class AlipayConfig {
 
     private String privateKey;
 
-    private String pulicKey;
-
     private String alipayPublicKey;
 
     private String signType;
@@ -58,15 +56,6 @@ public class AlipayConfig {
     public void setPrivateKey(
             String privateKey) {
         this.privateKey = privateKey;
-    }
-
-    public String getPulicKey() {
-        return pulicKey;
-    }
-
-    public void setPulicKey(
-            String pulicKey) {
-        this.pulicKey = pulicKey;
     }
 
     public String getAlipayPublicKey() {

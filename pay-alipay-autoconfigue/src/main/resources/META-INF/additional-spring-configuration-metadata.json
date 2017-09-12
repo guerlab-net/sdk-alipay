@@ -34,12 +34,6 @@
 			"description": "应用私钥"
 		},
 		{
-			"name": "pay.alipay.pulic-key",
-			"type": "java.lang.String",
-			"sourceType": "net.guerlab.pay.alipay.config.AlipayConfig",
-			"description": "应用公钥"
-		},
-		{
 			"name": "pay.alipay.alipay-public-key",
 			"type": "java.lang.String",
 			"sourceType": "net.guerlab.pay.alipay.config.AlipayConfig",
