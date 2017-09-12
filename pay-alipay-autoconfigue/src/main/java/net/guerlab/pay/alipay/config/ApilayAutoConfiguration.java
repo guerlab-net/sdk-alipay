@@ -21,7 +21,7 @@ public class ApilayAutoConfiguration {
 
         DefaultAlipayClient client = new DefaultAlipayClient(AlipayUrlConstants.gateway(config.isDev()),
                 config.getAppId(), config.getPrivateKey(), AlipayConstants.FORMAT_JSON, AlipayConstants.CHARSET_UTF8,
-                config.getPulicKey(), signType);
+                config.getAlipayPublicKey(), signType);
 
         return client;
     }
