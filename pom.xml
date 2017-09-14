@@ -2,7 +2,7 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>net.guerlab</groupId>
-	<artifactId>pay-alipay</artifactId>
+	<artifactId>sdk-alipay</artifactId>
 	<version>1.0.0</version>
 	<packaging>pom</packaging>
 
@@ -77,9 +77,9 @@
 	</build>
 
 	<modules>
-		<module>pay-alipay-core</module>
-		<module>pay-alipay-autoconfigue</module>
-		<module>pay-alipay-starter</module>
+		<module>sdk-alipay-core</module>
+		<module>sdk-alipay-autoconfigue</module>
+		<module>sdk-alipay-starter</module>
 	</modules>
 
 	<dependencyManagement>
