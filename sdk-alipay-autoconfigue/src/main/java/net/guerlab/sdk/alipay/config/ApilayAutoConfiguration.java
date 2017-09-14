@@ -1,4 +1,4 @@
-package net.guerlab.pay.alipay.config;
+package net.guerlab.sdk.alipay.config;
 
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;

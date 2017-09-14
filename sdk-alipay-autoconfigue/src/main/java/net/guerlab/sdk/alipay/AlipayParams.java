@@ -1,4 +1,4 @@
-package net.guerlab.pay.alipay;
+package net.guerlab.sdk.alipay;
 
 import com.alipay.api.internal.util.AlipayHashMap;
 

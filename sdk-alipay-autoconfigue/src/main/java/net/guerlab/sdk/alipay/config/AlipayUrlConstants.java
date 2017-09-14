@@ -1,4 +1,4 @@
-package net.guerlab.pay.alipay.config;
+package net.guerlab.sdk.alipay.config;
 
 public interface AlipayUrlConstants {
 

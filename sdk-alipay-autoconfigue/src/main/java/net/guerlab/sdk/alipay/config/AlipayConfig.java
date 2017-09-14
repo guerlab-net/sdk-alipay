@@ -1,4 +1,4 @@
-package net.guerlab.pay.alipay.config;
+package net.guerlab.sdk.alipay.config;
 
 import java.util.Map;
 
@@ -14,10 +14,10 @@ import org.springframework.stereotype.Component;
  */
 @Component
 @RefreshScope
-@ConfigurationProperties(prefix = AlipayConfig.PAY_ALIPAY_PREFIX)
+@ConfigurationProperties(prefix = AlipayConfig.CONFIG_PREFIX)
 public class AlipayConfig {
 
-    public static final String PAY_ALIPAY_PREFIX = "pay.alipay";
+    public static final String CONFIG_PREFIX = "sdk.alipay";
 
     private boolean dev;
 

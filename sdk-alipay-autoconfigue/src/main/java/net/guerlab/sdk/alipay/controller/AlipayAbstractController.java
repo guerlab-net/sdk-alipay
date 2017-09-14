@@ -1,4 +1,4 @@
-package net.guerlab.pay.alipay.controller;
+package net.guerlab.sdk.alipay.controller;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -13,7 +13,7 @@ import com.alipay.api.AlipayApiException;
 import com.alipay.api.AlipayConstants;
 import com.alipay.api.internal.util.AlipaySignature;
 
-import net.guerlab.pay.alipay.config.AlipayConfig;
+import net.guerlab.sdk.alipay.config.AlipayConfig;
 
 public abstract class AlipayAbstractController {
 

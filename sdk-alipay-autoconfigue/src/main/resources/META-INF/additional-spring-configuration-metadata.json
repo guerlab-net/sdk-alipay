@@ -1,50 +1,50 @@
 {
 	"groups": [
 		{
-			"name": "pay.alipay",
-			"type": "net.guerlab.pay.alipay.config.AlipayConfig",
-			"sourceType": "net.guerlab.pay.alipay.config.AlipayConfig",
+			"name": "sdk.alipay",
+			"type": "net.guerlab.sdk.alipay.config.AlipayConfig",
+			"sourceType": "net.guerlab.sdk.alipay.config.AlipayConfig",
 			"description": "支付宝配置"
 		}
 	],
 	"properties": [
 		{
-			"name": "pay.alipay.dev",
+			"name": "sdk.alipay.dev",
 			"type": "java.lang.boolean",
-			"sourceType": "net.guerlab.pay.alipay.config.AlipayConfig",
+			"sourceType": "net.guerlab.sdk.alipay.config.AlipayConfig",
 			"description": "开发模式",
 			"defaultValue": "false"
 		},
 		{
-			"name": "pay.alipay.retrun-urls",
-			"type": "java.util.Map<java.lang.String,java.lang.String>",
-			"sourceType": "net.guerlab.pay.alipay.config.AlipayConfig",
-			"description": "支付宝支付完成返回页面前缀表"
-		},
-		{
-			"name": "pay.alipay.app-id",
+			"name": "sdk.alipay.app-id",
 			"type": "java.lang.String",
-			"sourceType": "net.guerlab.pay.alipay.config.AlipayConfig",
+			"sourceType": "net.guerlab.sdk.alipay.config.AlipayConfig",
 			"description": "支付宝应用ID"
 		},
 		{
-			"name": "pay.alipay.private-key",
+			"name": "sdk.alipay.private-key",
 			"type": "java.lang.String",
-			"sourceType": "net.guerlab.pay.alipay.config.AlipayConfig",
+			"sourceType": "net.guerlab.sdk.alipay.config.AlipayConfig",
 			"description": "应用私钥"
 		},
 		{
-			"name": "pay.alipay.alipay-public-key",
+			"name": "sdk.alipay.alipay-public-key",
 			"type": "java.lang.String",
-			"sourceType": "net.guerlab.pay.alipay.config.AlipayConfig",
+			"sourceType": "net.guerlab.sdk.alipay.config.AlipayConfig",
 			"description": "支付宝公钥"
 		},
 		{
-			"name": "pay.alipay.sign-type",
+			"name": "sdk.alipay.sign-type",
 			"type": "java.lang.String",
-			"sourceType": "net.guerlab.pay.alipay.config.AlipayConfig",
+			"sourceType": "net.guerlab.sdk.alipay.config.AlipayConfig",
 			"description": "签名类型,可使用RSA/RSA2算法,默认使用RSA2算法",
 			"defaultValue": "RSA2"
+		},
+		{
+			"name": "sdk.alipay.retrun-urls",
+			"type": "java.util.Map<java.lang.String,java.lang.String>",
+			"sourceType": "net.guerlab.sdk.alipay.config.AlipayConfig",
+			"description": "支付宝支付完成返回页面前缀表"
 		}
 	]
 }
