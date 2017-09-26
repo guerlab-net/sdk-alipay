@@ -37,7 +37,7 @@
 		<connection>scm:git:https://gitee.com/guerlab_net/sdk-alipay.git</connection>
 		<developerConnection>scm:git:https://gitee.com/guerlab_net/sdk-alipay.git</developerConnection>
 		<url>https://gitee.com/guerlab_net/sdk-alipay</url>
-		<tag></tag>
+		<tag>v1.0.0</tag>
 	</scm>
 
 	<properties>
