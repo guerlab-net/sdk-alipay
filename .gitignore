@@ -34,3 +34,4 @@ Thumbs.db
 
 # spring ignore
 .factorypath
+/.apt_generated/
