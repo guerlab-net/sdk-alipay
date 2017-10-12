@@ -3,8 +3,6 @@ package net.guerlab.sdk.alipay.controller;
 import java.util.HashMap;
 import java.util.Map;
 
-import javax.servlet.http.HttpServletRequest;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,9 +23,8 @@ public abstract class AlipayAbstractController {
     protected AlipayConfig config;
 
     protected final boolean notify0(
-            HttpServletRequest request) {
+            Map<String, String[]> requestParams) {
         Map<String, String> params = new HashMap<>();
-        Map<String, String[]> requestParams = request.getParameterMap();
         for (String name : requestParams.keySet()) {
             String[] values = requestParams.get(name);
             String valueStr = "";
