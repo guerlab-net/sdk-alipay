@@ -35,9 +35,9 @@
 	</scm>
 
 	<properties>
-		<commons.version>1.0.0</commons.version>
 		<java.version>1.8</java.version>
 		<junit.version>4.12</junit.version>
+		<maven-gpg-plugin.version>1.6</maven-gpg-plugin.version>
 		<plugin.javadoc.version>2.10.2</plugin.javadoc.version>
 		<plugin.deploy.version>2.8.2</plugin.deploy.version>
 		<project.encoding>UTF-8</project.encoding>
@@ -114,6 +114,7 @@
 					<plugin>
 						<groupId>org.apache.maven.plugins</groupId>
 						<artifactId>maven-gpg-plugin</artifactId>
+						<version>${maven-gpg-plugin.version}</version>
 						<executions>
 							<execution>
 								<id>sign-artifacts</id>
