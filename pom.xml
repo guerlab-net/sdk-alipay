@@ -3,7 +3,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>net.guerlab</groupId>
 	<artifactId>sdk-alipay</artifactId>
-	<version>1.0.2</version>
+	<version>1.0.3</version>
 	<packaging>pom</packaging>
 
 	<name>${project.groupId}:${project.artifactId}</name>
@@ -35,7 +35,7 @@
 	</scm>
 
 	<properties>
-		<azeroth.version>1.2.2</azeroth.version>
+		<commons.version>1.0.0</commons.version>
 		<java.version>1.8</java.version>
 		<junit.version>4.12</junit.version>
 		<plugin.javadoc.version>2.10.2</plugin.javadoc.version>
@@ -212,8 +212,8 @@
 		<dependencies>
 			<dependency>
 				<groupId>net.guerlab</groupId>
-				<artifactId>azeroth</artifactId>
-				<version>${azeroth.version}</version>
+				<artifactId>commons</artifactId>
+				<version>${commons.version}</version>
 			</dependency>
 			<dependency>
 				<groupId>junit</groupId>
