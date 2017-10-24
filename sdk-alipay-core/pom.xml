@@ -8,11 +8,11 @@
 		<artifactId>sdk-alipay</artifactId>
 		<version>1.0.3</version>
 	</parent>
-
+	
 	<dependencies>
 		<dependency>
-			<groupId>net.guerlab</groupId>
-			<artifactId>commons</artifactId>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-api</artifactId>
 		</dependency>
 	</dependencies>
 </project>

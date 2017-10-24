@@ -13,7 +13,6 @@
 		<dependency>
 			<groupId>net.guerlab</groupId>
 			<artifactId>sdk-alipay-autoconfigue</artifactId>
-			<version>${project.version}</version>
 		</dependency>
 	</dependencies>
 </project>
