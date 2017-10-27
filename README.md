@@ -1,19 +1,19 @@
 # sdk-alipay
-> spring boot下蚂蚁金服开放平台的开箱既用环境
+> spring boot下支付宝的开箱既用环境
 
 ## 使用场景
-> spring boot应用中需要接入蚂蚁金服开放平台
+> spring boot应用中需要接入支付宝
 
 ## 开始使用
 
 > 1. pom.xml中引入依赖
 
 ```
-		<dependency>
-			<groupId>net.guerlab</groupId>
-			<artifactId>sdk-alipay-starter</artifactId>
-			<version>1.0.3</version>
-		</dependency>
+<dependency>
+    <groupId>net.guerlab</groupId>
+    <artifactId>sdk-alipay-starter</artifactId>
+    <version>1.0.3</version>
+</dependency>
 ```
 
 > 2. bootstrap.yml中增加配置
