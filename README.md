@@ -79,7 +79,32 @@ public class AlipayController extends AlipayAbstractController {
         request.setNotifyUrl("http://demo/pay/alipay/notify/1"); //异步通知地址
         request.setBizContent(data.toJSONString()); //业务参数
 
+        //APP支付
         return client.sdkExecute(request).getBody();
+        //PC支付
+        //try {
+        //    PrintWriter writer = httpResponse.getWriter();
+        //    httpResponse.setContentType("text/html;charset=UTF-8");
+        //    writer.write(client.pageExecute(request).getBody());
+        //    writer.flush();
+        //    writer.close();
+        //    return null;
+        //} catch (Exception e) {
+        //    LOGGER.debug(e.getMessage(), e);
+        //    return "创建支付信息失败";
+        //}
+        //移动H5支付
+        //try {
+        //    PrintWriter writer = httpResponse.getWriter();
+        //    httpResponse.setContentType("text/html;charset=UTF-8");
+        //    writer.write(client.pageExecute(request).getBody());
+        //    writer.flush();
+        //    writer.close();
+        //    return null;
+        //} catch (Exception e) {
+        //    LOGGER.debug(e.getMessage(), e);
+        //    return "创建支付信息失败";
+        //}
     }
 
     @PostMapping("/notify/{orderId}")
