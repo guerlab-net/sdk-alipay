@@ -12,7 +12,7 @@
 <dependency>
     <groupId>net.guerlab</groupId>
     <artifactId>sdk-alipay-starter</artifactId>
-    <version>1.0.3</version>
+    <version>1.2.1</version>
 </dependency>
 ```
 
@@ -111,7 +111,7 @@ public class AlipayController extends AlipayAbstractController {
     public String notify(
             @PathVariable Long orderId,
             HttpServletRequest request) {
-        if (!notify0(request.getParameterMap())) {
+        if (!notifyRsaCheck(request.getParameterMap())) {
             //这里处理验签失败
         }
 
