@@ -12,7 +12,7 @@
 <dependency>
     <groupId>net.guerlab</groupId>
     <artifactId>sdk-alipay-starter</artifactId>
-    <version>1.2.1</version>
+    <version>1.3.0</version>
 </dependency>
 ```
 
