@@ -1,30 +1,28 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<artifactId>sdk-alipay-autoconfigue</artifactId>
+    <description>alipay component autoconfigure with spring boot</description>
 
 	<parent>
 		<groupId>net.guerlab</groupId>
 		<artifactId>sdk-alipay</artifactId>
-		<version>2.0.0</version>
+		<version>2.1.0</version>
 	</parent>
 
 	<dependencies>
 		<dependency>
-			<groupId>net.guerlab</groupId>
-			<artifactId>sdk-alipay-core</artifactId>
+			<groupId>com.alipay.sdk</groupId>
+			<artifactId>alipay-sdk-java</artifactId>
 		</dependency>
-		<dependency>
-			<groupId>io.swagger</groupId>
-			<artifactId>swagger-annotations</artifactId>
-		</dependency>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+        </dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.cloud</groupId>
-			<artifactId>spring-cloud-context</artifactId>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -32,5 +30,4 @@
 			<optional>true</optional>
 		</dependency>
 	</dependencies>
-	<description>alipay component autoconfigure with spring boot</description>
 </project>

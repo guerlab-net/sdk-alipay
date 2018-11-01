@@ -1,50 +1,44 @@
 {
 	"groups": [
 		{
-			"name": "sdk.alipay",
-			"type": "net.guerlab.sdk.alipay.config.AlipayConfig",
-			"sourceType": "net.guerlab.sdk.alipay.config.AlipayConfig",
+			"name": "alipay",
+			"type": "net.guerlab.sdk.alipay.properties.AlipayProperties",
+			"sourceType": "net.guerlab.sdk.alipay.properties.AlipayProperties",
 			"description": "支付宝配置"
 		}
 	],
 	"properties": [
 		{
-			"name": "sdk.alipay.dev",
+			"name": "alipay.dev",
 			"type": "java.lang.boolean",
-			"sourceType": "net.guerlab.sdk.alipay.config.AlipayConfig",
+			"sourceType": "net.guerlab.sdk.alipay.properties.AlipayProperties",
 			"description": "开发模式",
 			"defaultValue": "false"
 		},
 		{
-			"name": "sdk.alipay.app-id",
+			"name": "alipay.app-id",
 			"type": "java.lang.String",
-			"sourceType": "net.guerlab.sdk.alipay.config.AlipayConfig",
+			"sourceType": "net.guerlab.sdk.alipay.properties.AlipayProperties",
 			"description": "支付宝应用ID"
 		},
 		{
-			"name": "sdk.alipay.private-key",
+			"name": "alipay.private-key",
 			"type": "java.lang.String",
-			"sourceType": "net.guerlab.sdk.alipay.config.AlipayConfig",
+			"sourceType": "net.guerlab.sdk.alipay.properties.AlipayProperties",
 			"description": "应用私钥"
 		},
 		{
-			"name": "sdk.alipay.alipay-public-key",
+			"name": "alipay.alipay-public-key",
 			"type": "java.lang.String",
-			"sourceType": "net.guerlab.sdk.alipay.config.AlipayConfig",
+			"sourceType": "net.guerlab.sdk.alipay.properties.AlipayProperties",
 			"description": "支付宝公钥"
 		},
 		{
-			"name": "sdk.alipay.sign-type",
+			"name": "alipay.sign-type",
 			"type": "java.lang.String",
-			"sourceType": "net.guerlab.sdk.alipay.config.AlipayConfig",
+			"sourceType": "net.guerlab.sdk.alipay.properties.AlipayProperties",
 			"description": "签名类型,可使用RSA/RSA2算法,默认使用RSA2算法",
 			"defaultValue": "RSA2"
-		},
-		{
-			"name": "sdk.alipay.retrun-urls",
-			"type": "java.util.Map<java.lang.String,java.lang.String>",
-			"sourceType": "net.guerlab.sdk.alipay.config.AlipayConfig",
-			"description": "支付宝支付完成返回页面前缀表"
 		}
 	]
 }

@@ -12,7 +12,7 @@
 <dependency>
     <groupId>net.guerlab</groupId>
     <artifactId>sdk-alipay-starter</artifactId>
-    <version>1.3.0</version>
+    <version>2.1.0</version>
 </dependency>
 ```
 
@@ -47,23 +47,24 @@ import com.alipay.api.request.AlipayTradeAppPayRequest;
 import com.alipay.api.request.AlipayTradePagePayRequest;
 import com.alipay.api.request.AlipayTradeWapPayRequest;
 
-import net.guerlab.sdk.alipay.controller.AlipayAbstractController;
+import net.guerlab.sdk.alipay.properties.AlipayProperties;
+import net.guerlab.sdk.alipay.utils.NotifyUtils;
 
-
-@RequestMapping("/pay/alipay")
-public class AlipayController extends AlipayAbstractController {
+@Controller
+@RequestMapping("/alipay")
+public class AlipayController {
 
     @Autowired
     private AlipayClient client;//支付宝请求sdk客户端
+    
+    @Autowired
+    private AlipayProperties properties;//支付宝sdk配置
 
     /**
      * 支付请求
      */
-    @GetMapping("/app/{orderId}")
-    public String app(
-            @PathVariable Long orderId,
-            HttpServletResponse httpResponse) {
-        
+    @GetMapping
+    public String pay(HttpServletResponse httpResponse) {
         JSONObject data = new JSONObject();
         data.put("out_trade_no", "201701010000001234"); //商户订单号
         data.put("product_code", "QUICK_MSECURITY_PAY"); //产品码, APP支付 QUICK_MSECURITY_PAY, PC支付 FAST_INSTANT_TRADE_PAY, 移动H5支付 QUICK_WAP_PAY
@@ -76,7 +77,7 @@ public class AlipayController extends AlipayAbstractController {
         //AlipayTradePagePayRequest request = new AlipayTradePagePayRequest();
         //移动H5支付
         //AlipayTradeWapPayRequest request = new AlipayTradeWapPayRequest();
-        request.setNotifyUrl("http://demo/pay/alipay/notify/1"); //异步通知地址
+        request.setNotifyUrl("http://demo/alipay/notify"); //异步通知地址
         request.setBizContent(data.toJSONString()); //业务参数
 
         //APP支付
@@ -107,11 +108,12 @@ public class AlipayController extends AlipayAbstractController {
         //}
     }
 
-    @PostMapping("/notify/{orderId}")
-    public String notify(
-            @PathVariable Long orderId,
-            HttpServletRequest request) {
-        if (!notifyRsaCheck(request.getParameterMap())) {
+    /**
+     * 异步通知相应
+     */
+    @PostMapping("/notify")
+    public String notify(HttpServletRequest request) {
+        if (!NotifyUtils.rsaCheck(properties, request.getParameterMap())) {
             //这里处理验签失败
         }
 

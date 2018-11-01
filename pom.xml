@@ -1,19 +1,21 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<artifactId>sdk-alipay</artifactId>
 	<packaging>pom</packaging>
+	<version>2.1.0</version>
 
 	<name>${project.groupId}:${project.artifactId}</name>
 	<description>alipay component with spring boot</description>
 	<url>https://gitee.com/guerlab_net/sdk-alipay</url>
-	
+
 	<parent>
 		<groupId>net.guerlab</groupId>
 		<artifactId>sdk-dependencies</artifactId>
 		<version>2.0.0</version>
 	</parent>
-	
+
 	<licenses>
 		<license>
 			<name>GNU LESSER GENERAL PUBLIC LICENSE Version 3</name>
@@ -30,11 +32,11 @@
 			<organizationUrl>http://www.guerlab.net</organizationUrl>
 		</developer>
 	</developers>
-    
-    <organization>
-        <name>guerlab</name>
-        <url>http://www.guerlab.net</url>
-    </organization>
+
+	<organization>
+		<name>guerlab</name>
+		<url>http://www.guerlab.net</url>
+	</organization>
 
 	<scm>
 		<connection>scm:git:https://gitee.com/guerlab_net/sdk-alipay.git</connection>
@@ -42,97 +44,106 @@
 		<url>https://gitee.com/guerlab_net/sdk-alipay</url>
 		<tag>HEAD</tag>
 	</scm>
-    
-    <issueManagement>
-        <system>gitee</system>
-        <url>https://gitee.com/guerlab_net/sdk-alipay/issues</url>
-    </issueManagement>
+
+	<issueManagement>
+		<system>gitee</system>
+		<url>https://gitee.com/guerlab_net/sdk-alipay/issues</url>
+	</issueManagement>
 
 	<properties>
-		<alipay.version>2.0.0</alipay.version>
-	</properties>
-    
-    <distributionManagement>
-        <snapshotRepository>
-            <id>sonatype-nexus-snapshots</id>
-            <name>Sonatype Nexus Snapshots</name>
-            <url>https://oss.sonatype.org/content/repositories/snapshots/</url>
-        </snapshotRepository>
-        <repository>
-            <id>sonatype-nexus-staging</id>
-            <name>Nexus Release Repository</name>
-            <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
-        </repository>
-    </distributionManagement>
+		<java.version>1.8</java.version>
+		<project.encoding>UTF-8</project.encoding>
 
-    <build>
-        <pluginManagement>
-            <plugins>
-                <plugin>
-                    <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-gpg-plugin</artifactId>
-                    <version>${maven-gpg-plugin.version}</version>
-                </plugin>
-                <plugin>
-                    <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-failsafe-plugin</artifactId>
-                    <executions>
-                        <execution>
-                            <goals>
-                                <goal>integration-test</goal>
-                                <goal>verify</goal>
-                            </goals>
-                        </execution>
-                    </executions>
-                </plugin>
-                <plugin>
-                    <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-compiler-plugin</artifactId>
-                    <configuration>
-                        <source>${java.version}</source>
-                        <target>${java.version}</target>
-                        <encoding>${project.encoding}</encoding>
-                    </configuration>
-                </plugin>
-                <plugin>
-                    <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-resources-plugin</artifactId>
-                    <configuration>
-                        <encoding>${project.encoding}</encoding>
-                    </configuration>
-                </plugin>
-                <plugin>
-                    <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-javadoc-plugin</artifactId>
-                    <version>${plugin.javadoc.version}</version>
-                    <configuration>
-                        <encoding>${project.encoding}</encoding>
-                        <aggregate>true</aggregate>
-                        <charset>${project.encoding}</charset>
-                        <docencoding>${project.encoding}</docencoding>
-                    </configuration>
-                </plugin>
-            </plugins>
-        </pluginManagement>
-        <plugins>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-gpg-plugin</artifactId>
-                <executions>
-                    <execution>
-                        <id>sign-artifacts</id>
-                        <phase>verify</phase>
-                        <goals>
-                            <goal>sign</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
-        </plugins>
-    </build>
+		<maven-compiler-plugin.version>3.8.0</maven-compiler-plugin.version>
+		<maven-surefire-plugin.version>2.22.1</maven-surefire-plugin.version>
+		<maven-javadoc-plugin.version>3.0.1</maven-javadoc-plugin.version>
+		<maven-deploy-plugin.version>3.0.0-M1</maven-deploy-plugin.version>
+		<maven-gpg-plugin.version>1.6</maven-gpg-plugin.version>
+
+		<sdk-alipay.version>2.1.0</sdk-alipay.version>
+		<comp.alipay.sdk.version>3.4.27.ALL</comp.alipay.sdk.version>
+	</properties>
+
+	<distributionManagement>
+		<snapshotRepository>
+			<id>sonatype-nexus-snapshots</id>
+			<name>Sonatype Nexus Snapshots</name>
+			<url>https://oss.sonatype.org/content/repositories/snapshots/</url>
+		</snapshotRepository>
+		<repository>
+			<id>sonatype-nexus-staging</id>
+			<name>Nexus Release Repository</name>
+			<url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+		</repository>
+	</distributionManagement>
+
+	<build>
+		<pluginManagement>
+			<plugins>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-gpg-plugin</artifactId>
+					<version>${maven-gpg-plugin.version}</version>
+				</plugin>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-failsafe-plugin</artifactId>
+					<executions>
+						<execution>
+							<goals>
+								<goal>integration-test</goal>
+								<goal>verify</goal>
+							</goals>
+						</execution>
+					</executions>
+				</plugin>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-compiler-plugin</artifactId>
+					<configuration>
+						<source>${java.version}</source>
+						<target>${java.version}</target>
+						<encoding>${project.encoding}</encoding>
+					</configuration>
+				</plugin>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-resources-plugin</artifactId>
+					<configuration>
+						<encoding>${project.encoding}</encoding>
+					</configuration>
+				</plugin>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-javadoc-plugin</artifactId>
+					<version>${plugin.javadoc.version}</version>
+					<configuration>
+						<encoding>${project.encoding}</encoding>
+						<aggregate>true</aggregate>
+						<charset>${project.encoding}</charset>
+						<docencoding>${project.encoding}</docencoding>
+					</configuration>
+				</plugin>
+			</plugins>
+		</pluginManagement>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-gpg-plugin</artifactId>
+				<executions>
+					<execution>
+						<id>sign-artifacts</id>
+						<phase>verify</phase>
+						<goals>
+							<goal>sign</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
 
 	<modules>
-		<module>sdk-alipay-core</module>
 		<module>sdk-alipay-autoconfigue</module>
 		<module>sdk-alipay-starter</module>
 	</modules>
@@ -140,14 +151,19 @@
 	<dependencyManagement>
 		<dependencies>
 			<dependency>
-				<groupId>net.guerlab</groupId>
-				<artifactId>sdk-alipay-core</artifactId>
-				<version>${alipay.version}</version>
+				<groupId>com.alipay.sdk</groupId>
+				<artifactId>alipay-sdk-java</artifactId>
+				<version>${comp.alipay.sdk.version}</version>
 			</dependency>
 			<dependency>
 				<groupId>net.guerlab</groupId>
 				<artifactId>sdk-alipay-autoconfigue</artifactId>
-				<version>${alipay.version}</version>
+				<version>${sdk-alipay.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>net.guerlab</groupId>
+				<artifactId>sdk-alipay-starter</artifactId>
+				<version>${sdk-alipay.version}</version>
 			</dependency>
 		</dependencies>
 	</dependencyManagement>
