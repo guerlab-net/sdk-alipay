@@ -32,7 +32,7 @@ public class ApilayAutoConfiguration {
     /**
      * 构造支付宝客户端
      *
-     * @param config
+     * @param properties
      *            支付宝配置
      * @return 支付宝客户端
      */
