@@ -19,13 +19,12 @@
 > 2. bootstrap.yml中增加配置
 
 ```
-sdk:
-  alipay:
-    dev: true/false #默认false,为true表示使用沙箱环境
-    sign-type: RSA2 #签名算法
-    app-id: #应用ID
-    private-key: #应用私钥
-    alipay-public-key: #支付宝公钥
+alipay:
+  dev: true/false #默认false,为true表示使用沙箱环境
+  sign-type: RSA2 #签名算法
+  app-id: #应用ID
+  private-key: #应用私钥
+  alipay-public-key: #支付宝公钥
 ```
 
 > 3. 增加控制器实现
