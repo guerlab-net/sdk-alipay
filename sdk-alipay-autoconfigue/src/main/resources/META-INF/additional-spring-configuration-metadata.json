@@ -10,7 +10,7 @@
 	"properties": [
 		{
 			"name": "alipay.dev",
-			"type": "java.lang.boolean",
+			"type": "java.lang.Boolean",
 			"sourceType": "net.guerlab.sdk.alipay.properties.AlipayProperties",
 			"description": "开发模式",
 			"defaultValue": "false"
