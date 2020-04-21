@@ -1,17 +1,15 @@
 package net.guerlab.sdk.alipay.utils;
 
-import java.util.Map;
-import java.util.Map.Entry;
-import java.util.stream.Collectors;
-
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
 import com.alipay.api.AlipayApiException;
 import com.alipay.api.AlipayConstants;
 import com.alipay.api.internal.util.AlipaySignature;
-
 import net.guerlab.sdk.alipay.properties.AlipayProperties;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import java.util.Map;
+import java.util.Map.Entry;
+import java.util.stream.Collectors;
 
 /**
  * 通知回调工具类
@@ -71,7 +69,7 @@ public class NotifyUtils {
         }
 
         Map<String, String> params = requestParams.entrySet().stream().filter(NotifyUtils::entryCheck)
-                .collect(Collectors.toMap(e -> e.getKey(), e -> String.join(",", e.getValue())));
+                .collect(Collectors.toMap(Entry::getKey, e -> String.join(",", e.getValue())));
 
         try {
             return AlipaySignature.rsaCheckV1(params, properties.getAlipayPublicKey(), AlipayConstants.CHARSET_UTF8,

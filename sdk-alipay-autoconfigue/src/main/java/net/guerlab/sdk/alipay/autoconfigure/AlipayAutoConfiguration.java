@@ -1,27 +1,24 @@
 package net.guerlab.sdk.alipay.autoconfigure;
 
-import java.util.Objects;
-
+import com.alipay.api.AlipayClient;
+import com.alipay.api.AlipayConstants;
+import com.alipay.api.DefaultAlipayClient;
+import net.guerlab.sdk.alipay.AlipayUrlConstants;
+import net.guerlab.sdk.alipay.properties.AlipayProperties;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-import com.alipay.api.AlipayClient;
-import com.alipay.api.AlipayConstants;
-import com.alipay.api.DefaultAlipayClient;
-
-import net.guerlab.sdk.alipay.AlipayUrlConstants;
-import net.guerlab.sdk.alipay.properties.AlipayProperties;
+import java.util.Objects;
 
 /**
  * 支付宝客户端自动配置
  *
  * @author guer
- *
  */
 @Configuration
 @EnableConfigurationProperties(AlipayProperties.class)
-public class ApilayAutoConfiguration {
+public class AlipayAutoConfiguration {
 
     private static final String ERROR_MSG_APPID_NULL = "alipay application's appid cann't be null";
 
@@ -38,7 +35,6 @@ public class ApilayAutoConfiguration {
      */
     @Bean
     public AlipayClient alipayClient(AlipayProperties properties) {
-
         String gatewayUrl = AlipayUrlConstants.gateway(properties.isDev());
         String appId = Objects.requireNonNull(properties.getAppId(), ERROR_MSG_APPID_NULL);
         String privateKey = Objects.requireNonNull(properties.getPrivateKey(), ERROR_MSG_PRIVATE_KEY_NULL);

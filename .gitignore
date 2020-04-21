@@ -1,11 +1,11 @@
 # maven ignore
-bin/
 target/
 *.jar
 *.war
 *.zip
 *.tar
 *.tar.gz
+.flattened-pom.xml
 
 # eclipse ignore
 .settings/
@@ -31,7 +31,11 @@ target/
 # system ignore
 .DS_Store
 Thumbs.db
-
-# spring ignore
 .factorypath
+bin/
 /.apt_generated/
+.springBeans
+*.bar
+
+# cert
+*.p12

@@ -4,7 +4,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<artifactId>sdk-alipay</artifactId>
 	<packaging>pom</packaging>
-	<version>2.1.0</version>
+	<version>${revision}</version>
 
 	<name>${project.groupId}:${project.artifactId}</name>
 	<description>alipay component with spring boot</description>
@@ -51,17 +51,20 @@
 	</issueManagement>
 
 	<properties>
+		<revision>2.2.0</revision>
+		<main.basedir>${basedir}</main.basedir>
+
 		<java.version>1.8</java.version>
 		<project.encoding>UTF-8</project.encoding>
 
+		<!-- maven -->
 		<maven-compiler-plugin.version>3.8.0</maven-compiler-plugin.version>
 		<maven-surefire-plugin.version>2.22.1</maven-surefire-plugin.version>
 		<maven-javadoc-plugin.version>3.0.1</maven-javadoc-plugin.version>
 		<maven-deploy-plugin.version>3.0.0-M1</maven-deploy-plugin.version>
 		<maven-gpg-plugin.version>1.6</maven-gpg-plugin.version>
 
-		<sdk-alipay.version>2.1.0</sdk-alipay.version>
-		<comp.alipay.sdk.version>3.4.27.ALL</comp.alipay.sdk.version>
+		<com.alipay.sdk.version>4.9.124.ALL</com.alipay.sdk.version>
 	</properties>
 
 	<distributionManagement>
@@ -100,6 +103,7 @@
 				<plugin>
 					<groupId>org.apache.maven.plugins</groupId>
 					<artifactId>maven-compiler-plugin</artifactId>
+					<version>${maven-compiler-plugin.version}</version>
 					<configuration>
 						<source>${java.version}</source>
 						<target>${java.version}</target>
@@ -116,10 +120,8 @@
 				<plugin>
 					<groupId>org.apache.maven.plugins</groupId>
 					<artifactId>maven-javadoc-plugin</artifactId>
-					<version>${plugin.javadoc.version}</version>
 					<configuration>
 						<encoding>${project.encoding}</encoding>
-						<aggregate>true</aggregate>
 						<charset>${project.encoding}</charset>
 						<docencoding>${project.encoding}</docencoding>
 					</configuration>
@@ -140,6 +142,31 @@
 					</execution>
 				</executions>
 			</plugin>
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>flatten-maven-plugin</artifactId>
+				<version>1.1.0</version>
+				<configuration>
+					<updatePomFile>true</updatePomFile>
+					<flattenMode>resolveCiFriendliesOnly</flattenMode>
+				</configuration>
+				<executions>
+					<execution>
+						<id>flatten</id>
+						<phase>process-resources</phase>
+						<goals>
+							<goal>flatten</goal>
+						</goals>
+					</execution>
+					<execution>
+						<id>flatten.clean</id>
+						<phase>clean</phase>
+						<goals>
+							<goal>clean</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
 		</plugins>
 	</build>
 
@@ -153,17 +180,17 @@
 			<dependency>
 				<groupId>com.alipay.sdk</groupId>
 				<artifactId>alipay-sdk-java</artifactId>
-				<version>${comp.alipay.sdk.version}</version>
+				<version>${com.alipay.sdk.version}</version>
 			</dependency>
 			<dependency>
 				<groupId>net.guerlab</groupId>
 				<artifactId>sdk-alipay-autoconfigue</artifactId>
-				<version>${sdk-alipay.version}</version>
+				<version>${revision}</version>
 			</dependency>
 			<dependency>
 				<groupId>net.guerlab</groupId>
 				<artifactId>sdk-alipay-starter</artifactId>
-				<version>${sdk-alipay.version}</version>
+				<version>${revision}</version>
 			</dependency>
 		</dependencies>
 	</dependencyManagement>
